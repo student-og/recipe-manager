@@ -11,6 +11,10 @@ public:
            const std::vector<std::string>& comments);
 
     std::string serialize() const;
+    
+    // Add the necessary methods
+    void setRating(int rating);
+    void addComment(const std::string& comment);
 
 private:
     std::string name;
