@@ -1,34 +1,31 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
-
-#include <QMainWindow>
+#include "MainWindow.h"
 #include "RecipeManager.h"
+#include <string>
+#include <vector>
 
-namespace Ui {
-class MainWindow;
+// Example function where the error was occurring
+void MainWindow::on_addRecipeButton_clicked() {
+    std::string name = ui->nameLineEdit->text().toStdString();
+    std::string category = ui->categoryLineEdit->text().toStdString();
+    std::vector<std::string> ingredientsVec;
+
+    // Assuming you have a way to gather ingredients from the UI
+    for (const auto& ingredient : ui->ingredientsListWidget->items()) {
+        ingredientsVec.push_back(ingredient->text().toStdString());
+    }
+
+    int rating = ui->ratingSpinBox->value(); // Assuming you have a spinBox for rating
+    std::vector<std::string> commentsVec;
+
+    // Assuming you have a way to gather comments from the UI
+    for (const auto& comment : ui->commentsListWidget->items()) {
+        commentsVec.push_back(comment->text().toStdString());
+    }
+
+    Recipe recipe(name, category, ingredientsVec, rating, commentsVec);
+
+    // Further processing
+    manager.addRecipe(recipe);
 }
 
-class MainWindow : public QMainWindow {
-    Q_OBJECT
-
-public:
-    explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
-
-private slots:
-    void on_addRecipeButton_clicked();
-    void on_editRecipeButton_clicked();
-    void on_deleteRecipeButton_clicked();
-    void on_searchByIngredientButton_clicked();
-    void on_searchByNameButton_clicked();
-    void on_listByCategoryButton_clicked();
-    void on_searchByMultipleIngredientsButton_clicked();
-    void on_filterByRatingButton_clicked();
-    void on_saveAndExitButton_clicked();
-
-private:
-    Ui::MainWindow *ui;
-    RecipeManager manager;
-};
-
-#endif // MAINWINDOW_H
+// Other member functions can be updated similarly
