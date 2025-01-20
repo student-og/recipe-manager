@@ -10,7 +10,7 @@ public:
            const std::vector<std::string>& ingredients, int rating, 
            const std::vector<std::string>& comments);
 
-    std::string serialize() const; // Add the serialize method
+    std::string serialize() const;
 
 private:
     std::string name;
