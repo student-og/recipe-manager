@@ -26,7 +26,11 @@ void MainWindow::on_addRecipeButton_clicked() {
                 if (ok && !rating.isEmpty()) {
                     QString comments = QInputDialog::getText(this, tr("Add Recipe"), tr("Comments (newline separated):"), QLineEdit::Normal, "", &ok);
                     if (ok) {
-                        Recipe recipe(name.toStdString(), category.toStdString(), ingredients.split(",").toVector().toStdVector());
+                        std::vector<std::string> ingredientsVec;
+                        for (const auto& ingredient : ingredients.split(",")) {
+                            ingredientsVec.push_back(ingredient.toStdString());
+                        }
+                        Recipe recipe(name.toStdString(), category.toStdString(), ingredientsVec);
                         recipe.setRating(rating.toInt());
                         for (const auto& comment : comments.split("\n")) {
                             recipe.addComment(comment.toStdString());
@@ -79,7 +83,11 @@ void MainWindow::on_searchByMultipleIngredientsButton_clicked() {
     bool ok;
     QString ingredients = QInputDialog::getText(this, tr("Search by Multiple Ingredients"), tr("Ingredients (comma separated):"), QLineEdit::Normal, "", &ok);
     if (ok && !ingredients.isEmpty()) {
-        manager.searchByMultipleIngredients(ingredients.split(",").toVector().toStdVector());
+        std::vector<std::string> ingredientsVec;
+        for (const auto& ingredient : ingredients.split(",")) {
+            ingredientsVec.push_back(ingredient.toStdString());
+        }
+        manager.searchByMultipleIngredients(ingredientsVec);
     }
 }
 
@@ -95,3 +103,4 @@ void MainWindow::on_saveAndExitButton_clicked() {
     manager.saveToFile("recipes.txt");
     QApplication::quit();
 }
+
