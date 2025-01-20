@@ -1,33 +1,26 @@
-#ifndef RECIPE_H
-#define RECIPE_H
+#ifndef RECIPE_MANAGER_H
+#define RECIPE_MANAGER_H
 
-#include <string>
+#include "Recipe.h"
 #include <vector>
+#include <string>
 
-class Recipe {
+class RecipeManager {
 public:
-    Recipe(const std::string& name, const std::string& category, 
-           const std::vector<std::string>& ingredients, int rating = 0, 
-           const std::vector<std::string>& comments = {});
-
-    std::string serialize() const;
-    
-    void setRating(int rating);
-    void addComment(const std::string& comment);
-
-    // Getter methods for private members
-    std::string getName() const { return name; }
-    std::string getCategory() const { return category; }
-    std::vector<std::string> getIngredients() const { return ingredients; }
-    int getRating() const { return rating; }
-    std::vector<std::string> getComments() const { return comments; }
+    void addRecipe(const Recipe& recipe);
+    void editRecipe(const std::string& name, const Recipe& newRecipe);
+    void deleteRecipe(const std::string& name);
+    void searchByIngredient(const std::string& ingredient) const;
+    void searchByName(const std::string& name) const;
+    void listRecipesByCategory(const std::string& category) const;
+    void searchByMultipleIngredients(const std::vector<std::string>& ingredients) const;
+    void filterByRating(int rating) const;
+    void saveToFile(const std::string& filename) const;
+    void loadFromFile(const std::string& filename);
 
 private:
-    std::string name;
-    std::string category;
-    std::vector<std::string> ingredients;
-    int rating;
-    std::vector<std::string> comments;
+    std::vector<Recipe> recipes;
 };
 
-#endif // RECIPE_H
+#endif // RECIPE_MANAGER_H
+
