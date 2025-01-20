@@ -1,20 +1,20 @@
 #ifndef RECIPE_MANAGER_H
 #define RECIPE_MANAGER_H
 
-#include "Recipe.h"
-#include <vector>
 #include <string>
+#include <vector>
+
+class Recipe {
+public:
+    Recipe(const std::string& name, const std::string& category, 
+           const std::vector<std::string>& ingredients, int rating, 
+           const std::vector<std::string>& comments);
+
+    // Other member functions and variables
+};
 
 class RecipeManager {
 public:
-    void addRecipe(const Recipe& recipe);
-    void editRecipe(const std::string& name, const Recipe& newRecipe);
-    void deleteRecipe(const std::string& name);
-    void searchByIngredient(const std::string& ingredient) const;
-    void searchByName(const std::string& name) const;
-    void listRecipesByCategory(const std::string& category) const;
-    void searchByMultipleIngredients(const std::vector<std::string>& ingredients) const;
-    void filterByRating(int rating) const;
     void saveToFile(const std::string& filename) const;
     void loadFromFile(const std::string& filename);
 
@@ -23,4 +23,3 @@ private:
 };
 
 #endif // RECIPE_MANAGER_H
-
