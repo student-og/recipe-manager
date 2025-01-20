@@ -10,4 +10,3 @@ tasks:
 ports:
   - port: 6080
     onOpen: open-preview
-
