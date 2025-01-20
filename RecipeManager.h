@@ -1,17 +1,9 @@
 #ifndef RECIPE_MANAGER_H
 #define RECIPE_MANAGER_H
 
+#include "Recipe.h"
 #include <string>
 #include <vector>
-
-class Recipe {
-public:
-    Recipe(const std::string& name, const std::string& category, 
-           const std::vector<std::string>& ingredients, int rating, 
-           const std::vector<std::string>& comments);
-
-    // Other member functions and variables
-};
 
 class RecipeManager {
 public:
