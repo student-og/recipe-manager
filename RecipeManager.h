@@ -1,18 +1,13 @@
-#ifndef RECIPE_MANAGER_H
-#define RECIPE_MANAGER_H
+#ifndef RECIPEMANAGER_H
+#define RECIPEMANAGER_H
 
-#include "Recipe.h"
-#include <string>
 #include <vector>
+#include <string>
+#include "Recipe.h" // Include the header file where Recipe is defined
 
 class RecipeManager {
 public:
-    void saveToFile(const std::string& filename) const;
-    void loadFromFile(const std::string& filename);
-
-    // Add the necessary methods
     void addRecipe(const Recipe& recipe);
-    void deleteRecipe(const std::string& name);
     std::vector<Recipe> searchByIngredient(const std::string& ingredient) const;
     std::vector<Recipe> searchByName(const std::string& name) const;
     std::vector<Recipe> listRecipesByCategory(const std::string& category) const;
@@ -23,4 +18,4 @@ private:
     std::vector<Recipe> recipes;
 };
 
-#endif // RECIPE_MANAGER_H
+#endif // RECIPEMANAGER_H
