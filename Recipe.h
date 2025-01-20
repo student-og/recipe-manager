@@ -7,14 +7,20 @@
 class Recipe {
 public:
     Recipe(const std::string& name, const std::string& category, 
-           const std::vector<std::string>& ingredients, int rating, 
-           const std::vector<std::string>& comments);
+           const std::vector<std::string>& ingredients, int rating = 0, 
+           const std::vector<std::string>& comments = {});
 
     std::string serialize() const;
     
-    // Add the necessary methods
     void setRating(int rating);
     void addComment(const std::string& comment);
+
+    // Getter methods for private members
+    std::string getName() const { return name; }
+    std::string getCategory() const { return category; }
+    std::vector<std::string> getIngredients() const { return ingredients; }
+    int getRating() const { return rating; }
+    std::vector<std::string> getComments() const { return comments; }
 
 private:
     std::string name;
