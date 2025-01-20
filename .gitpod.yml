@@ -1,13 +1,13 @@
-     tasks:
-       - init: sudo apt-get update && sudo apt-get install -y qt5-default
-         command: |
-           mkdir build
-           cd build
-           qmake ..
-           make
-     ports:
-       - port: 6080
-         onOpen: open-preview
-     
-
+tasks:
+  - init: |
+      sudo apt-get update
+      sudo apt-get install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools cmake
+    command: |
+      mkdir build
+      cd build
+      cmake ..
+      make
+ports:
+  - port: 6080
+    onOpen: open-preview
 
