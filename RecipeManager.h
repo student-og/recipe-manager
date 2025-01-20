@@ -1,9 +1,9 @@
 #ifndef RECIPE_MANAGER_H
 #define RECIPE_MANAGER_H
 
-#include "Recipe.h"
 #include <string>
 #include <vector>
+#include "Recipe.h"
 
 class RecipeManager {
 public:
