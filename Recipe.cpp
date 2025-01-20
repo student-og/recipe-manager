@@ -19,3 +19,11 @@ std::string Recipe::serialize() const {
     oss << "---\n";
     return oss.str();
 }
+
+void Recipe::setRating(int newRating) {
+    rating = newRating;
+}
+
+void Recipe::addComment(const std::string& comment) {
+    comments.push_back(comment);
+}
