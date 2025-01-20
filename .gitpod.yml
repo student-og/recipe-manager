@@ -1,7 +1,7 @@
 tasks:
   - init: |
       sudo apt-get update
-      sudo apt-get install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools cmake xvfb adb
+      sudo apt-get install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools cmake xvfb
     command: |
       mkdir build
       cd build
