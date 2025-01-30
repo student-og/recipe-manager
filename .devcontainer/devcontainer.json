@@ -1,0 +1,16 @@
+{
+    "name": "Recipe Manager",
+    "dockerFile": "Dockerfile",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "ms-vscode.cpptools",
+        "ms-azuretools.vscode-docker"
+    ],
+    "postCreateCommand": "mkdir build && cd build && cmake .. && make",
+    "forwardPorts": [
+        6080
+    ],
+    "remoteUser": "vscode"
+}
