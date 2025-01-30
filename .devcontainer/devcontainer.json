@@ -1,0 +1,17 @@
+{
+  "name": "Recipe Manager",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:1": {},
+    "ghcr.io/devcontainers/features/qt:1": {}
+  },
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools cmake xvfb",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools"
+      ]
+    }
+  }
+}
